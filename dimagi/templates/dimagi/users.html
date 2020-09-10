@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+{% if user_list %}
+    <ul>
+    {% for user in user_list %}
+        <li>{{user.email}} {{ user.city }} {{user.timestamp}} {{user.lat}} {{user.lng}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No users are available.</p>
+{% endif %}
+
+<a href="{% url 'user-form'%}">Enter a user location</a>
+</body>
+</html>
