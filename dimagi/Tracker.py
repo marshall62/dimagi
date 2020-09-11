@@ -3,8 +3,10 @@ from .models import User
 class Tracker:
 
     def get_user (self, email):
-        user = User.objects.filter(email=email)[0]
-        if not user:
+        user = User.objects.filter(email=email)
+        if user:
+            user = user[0]
+        else:
             user = User(email=email, city='unk',lat=0.0,lng=0.0)
             user.save()
         return user
